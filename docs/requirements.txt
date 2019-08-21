@@ -1,7 +1,6 @@
 # SPDX-License-Identifier: Apache-2.0
 python-markdown-math==0.2
 
-Python==3.5.2
 alabaster==0.7.8
 Babel==2.3.4
 docutils==0.12
