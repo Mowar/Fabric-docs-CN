@@ -603,8 +603,6 @@ Org2 signs the update transaction:
 
   peer channel signconfigtx -f config_update_in_envelope.pb
 
-.. code:: bash
-
 Now, we switch to the OrdererOrg. Then sign and submit:
 
 .. code:: bash

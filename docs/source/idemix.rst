@@ -67,6 +67,7 @@ In order to use Idemix in Hyperledger Fabric, the following three basic steps
 are required:
 
 .. image:: images/idemix-three-steps.png
+
 *Compare the roles in this image to the ones above.*
 
 1. Consider the issuer.
@@ -78,8 +79,8 @@ are required:
    ``IssuerPublicKey`` and ``IssuerRevocationPublicKey``. These files are
    required in step 2.
 
-   For a development environment and if you are not using Fabric CA, you may use
-   ``idemixgen``to create these files.
+   For a development environment and if you are not using Fabric CA,
+   you may use ``idemixgen`` to create these files.
 
 2. Consider the verifier.
 

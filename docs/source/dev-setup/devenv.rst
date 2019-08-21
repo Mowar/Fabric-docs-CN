@@ -56,7 +56,7 @@ Prerequisites
    Security settings of the BIOS
 
 ``pip``
-~~~~~~
+~~~~~~~~~~
 
 ::
 

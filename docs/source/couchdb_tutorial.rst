@@ -18,7 +18,8 @@ The tutorial will take you through the following steps:
 #. :ref:`cdb-delete-index`
 
 For a deeper dive into CouchDB refer to :doc:`couchdb_as_state_database`
-and for more information on the Fabric ledger refer to the `Ledger <ledger/ledger.html>`_
+and for more information on the Fabric ledger refer to
+the `Ledger <ledger/ledger.html>`_
 topic. Follow the tutorial below for details on how to leverage CouchDB in your
 blockchain network.
 
@@ -43,7 +44,8 @@ document datastore rather than a pure key-value store therefore enabling
 indexing of the contents of the documents in the database.
 
 In order to leverage the benefits of CouchDB, namely content-based JSON
-queries,your data must be modeled in JSON format. You must decide whether to use
+queries,your data must be modeled in JSON format.
+You must decide whether to use
 LevelDB or CouchDB before setting up your network. Switching a peer from using
 LevelDB to CouchDB is not supported due to data compatibility issues. All peers
 on the network must use the same database type. If you have a mix of JSON and
@@ -65,20 +67,21 @@ and update each peer container by changing the configuration found in
 file must be located in the directory specified by the environment variable
 FABRIC_CFG_PATH:
 
-* For docker deployments, ``core.yaml`` is pre-configured and located in the peer
+* For docker deployments, ``core.yaml`` is pre-configured and
+  located in the peer
   container ``FABRIC_CFG_PATH`` folder. However when using docker environments,
   you typically pass environment variables by editing the
   ``docker-compose-couch.yaml``  to override the core.yaml
 
-* For native binary deployments, ``core.yaml`` is included with the release artifact
-  distribution.
+* For native binary deployments, ``core.yaml`` is included with
+  the release artifact distribution.
 
 Edit the ``stateDatabase`` section of ``core.yaml``. Specify ``CouchDB`` as the
 ``stateDatabase`` and fill in the associated ``couchDBConfig`` properties. For
 more details on configuring CouchDB to work with fabric, refer `here <http://hyperledger-fabric.readthedocs.io/en/master/couchdb_as_state_database.html#couchdb-configuration>`__.
-To view an example of a core.yaml file configured for CouchDB, examine the
-BYFN ``docker-compose-couch.yaml`` in the ``HyperLedger/fabric-samples/first-network``
-directory.
+To view an example of a core.yaml file configured for CouchDB,
+examine the BYFN ``docker-compose-couch.yaml`` in
+the ``HyperLedger/fabric-samples/first-network`` directory.
 
 .. _cdb-create-index:
 
@@ -152,7 +155,8 @@ For example, a simple index named ``foo-index`` for a field named ``foo``.
         "type" : "json"
     }
 
-Optionally the design document  attribute ``ddoc`` can be specified on the index
+Optionally the design document  attribute ``ddoc`` can
+be specified on the index
 definition. A `design document <http://guide.couchdb.org/draft/design.html>`__ is
 CouchDB construct designed to contain indexes. Indexes can be grouped into
 design documents for efficiency but CouchDB recommends one index per design
@@ -189,7 +193,8 @@ any combination of attributes can be specified. An attribute can exist in
 multiple indexes for the same docType. In the following example, ``index1``
 only includes the attribute ``owner``, ``index2`` includes the attributes
 ``owner and color`` and ``index3`` includes the attributes ``owner, color and
-size``. Also, notice each index definition has its own ``ddoc`` value, following
+size``. Also, notice each index
+definition has its own ``ddoc`` value, following
 the CouchDB recommended practice.
 
 .. code:: json
@@ -396,7 +401,8 @@ Build the query in chaincode
 You can perform complex rich queries against the chaincode data values using
 the CouchDB JSON query language within chaincode. As we explored above, the
 `marbles02 sample chaincode <https://github.com/hyperledger/fabric-samples/blob/master/chaincode/marbles02/go/marbles_chaincode.go>`__
-includes an index and rich queries are defined in the functions - ``queryMarbles``
+includes an index and rich queries are
+defined in the functions - ``queryMarbles``
 and ``queryMarblesByOwner``:
 
   * **queryMarbles** --
@@ -412,9 +418,12 @@ and ``queryMarblesByOwner``:
   * **queryMarblesByOwner** --
 
       Example of a parameterized query where the
-      query logic is baked into the chaincode. In this case the function accepts
-      a single argument, the marble owner. It then queries the state database for
-      JSON documents matching the docType of “marble” and the owner id using the
+      query logic is baked into the chaincode.
+      In this case the function accepts
+      a single argument, the marble owner.
+      It then queries the state database for
+      JSON documents matching the docType
+      of “marble” and the owner id using the
       JSON query syntax.
 
 
@@ -452,9 +461,11 @@ by "tom" using the ``queryMarbles`` function.
 Delving into the query command above, there are three arguments of interest:
 
 *  ``queryMarbles``
+
   Name of the function in the Marbles chaincode. Notice a `shim <https://godoc.org/github.com/hyperledger/fabric/core/chaincode/shim>`__
-  ``shim.ChaincodeStubInterface`` is used to access and modify the ledger. The
-  ``getQueryResultForQueryString()`` passes the queryString to the shim API ``getQueryResult()``.
+  ``shim.ChaincodeStubInterface`` is used to access and modify the ledger.
+  The ``getQueryResultForQueryString()`` passes the
+  queryString to the shim API ``getQueryResult()``.
 
 .. code:: bash
 
@@ -476,11 +487,13 @@ Delving into the query command above, there are three arguments of interest:
   }
 
 *  ``{"selector":{"docType":"marble","owner":"tom"}``
+
   This is an example of an **ad hoc selector** string which finds all documents
   of type ``marble`` where the ``owner`` attribute has a value of ``tom``.
 
 
 *  ``"use_index":["_design/indexOwnerDoc", "indexOwner"]``
+
   Specifies both the design doc name  ``indexOwnerDoc`` and index name
   ``indexOwner``. In this example the selector query explicitly includes the
   index name, specified by using the ``use_index`` keyword. Recalling the
@@ -490,7 +503,8 @@ Delving into the query command above, there are three arguments of interest:
   ``ddoc`` value, so it can be referenced with the ``use_index`` keyword.
 
 
-The query runs successfully and the index is leveraged with the following results:
+The query runs successfully and the index is
+leveraged with the following results:
 
 .. code:: json
 
@@ -543,10 +557,12 @@ specifies the number of records to return per query.  The ``bookmark`` is an
 a unique bookmark.)
 
 *  ``queryMarblesWithPagination``
+
   Name of the function in the Marbles chaincode. Notice a `shim <https://godoc.org/github.com/hyperledger/fabric/core/chaincode/shim>`__
-  ``shim.ChaincodeStubInterface`` is used to access and modify the ledger. The
-  ``getQueryResultForQueryStringWithPagination()`` passes the queryString along
-    with the pagesize and bookmark to the shim API ``GetQueryResultWithPagination()``.
+  ``shim.ChaincodeStubInterface`` is used to access and modify the ledger.
+  The ``getQueryResultForQueryStringWithPagination()`` passes
+  the queryString along with the pagesize and bookmark to
+  the shim API ``GetQueryResultWithPagination()``.
 
 .. code:: bash
 

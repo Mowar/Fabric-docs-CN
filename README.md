@@ -22,3 +22,7 @@ The original online documentation is http://hyperledger-fabric.readthedocs.io/
 # Sponsor - 发起者
 * Arnaud Le Hors - lehors@us.ibm.com
 * Baohua Yang - yangbaohua@gmail.com
+
+# References
+
+* https://github.com/hyperledger-labs/fabric-docs-cn/tree/1.3.0_zh-CN

@@ -1,27 +1,19 @@
 Tutorials
-=========
+===========
 
-We offer tutorials to get you started with Hyperledger Fabric.
-The first is oriented to the Hyperledger Fabric **application developer**,
-:doc:`write_first_app`. It takes you through the process of writing your first
-blockchain application for Hyperledger Fabric using the Hyperledger Fabric
-`Node SDK <https://github.com/hyperledger/fabric-sdk-node>`__.
 
-The second tutorial is oriented towards the Hyperledger Fabric network
-operators, :doc:`build_network`. This one walks you through the process of
-establishing a blockchain network using Hyperledger Fabric and provides
-a basic sample application to test it out.
+我们提供了Hyperledger Fabric 相关的教程. 第一个教程是面向 Hyperledger F
+abric **应用开发者**, :doc:`write_first_app`.
+它会让你熟悉使用Hyperledger Fabric 中的 `Node SDK <https://github.com/hyperledger/fabric-sdk-node>`__  来编写Hyperledger Fabric 区块链应用的过程.
 
-There are also tutorials for updating your channel, :doc:`channel_update_tutorial`, and
-upgrading your network to a later version of Hyperledger Fabric, :doc:`upgrading_your_network_tutorial`.
+第二个教程是面向 Hyperledger Fabric 网络操作者, :doc:`build_network`. 它让你经历搭建 Fabric 区块链网络
+的流程，并且提供了一个基础的应用例子来测试它。
 
-Finally, we offer two chaincode tutorials. One oriented to developers,
-:doc:`chaincode4ade`, and the other oriented to operators,
-:doc:`chaincode4noah`.
+这里也有更新通道，:doc:`channel_update_tutorial`,和更新网络到最新 Hyperledger Fabric 版本 的相关教程。
 
-.. note:: If you have questions not addressed by this documentation, or run into
-          issues with any of the tutorials, please visit the :doc:`questions`
-          page for some tips on where to find additional help.
+最终,我们提供了两个链码的教程，一个适合开发者, :doc:`chaincode4ade`,另外一个适合操作者, :doc:`chaincode4noah`.
+
+.. note:: 如果你有本文档未解决的问题，或遇到任何有关教程的问题，请访问 :doc:`questions` 页面，获取有关在何处寻求其他帮助的一些提示。
 
 .. toctree::
    :maxdepth: 1

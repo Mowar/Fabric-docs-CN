@@ -98,5 +98,4 @@ dive on transaction structure, concurrency control, and the state DB.
 
 浏览 :doc:`txflow`, :doc:`readwrite`, and :doc:`couchdb_as_state_database` 来对交易结构、并发控制和 state 数据库进行深入研究。
 
-.. Licensed under Creative Commons Attribution 4.0 International License
-https://creativecommons.org/licenses/by/4.0/
+.. Licensed under Creative Commons Attribution 4.0 International License https://creativecommons.org/licenses/by/4.0/
